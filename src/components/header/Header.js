@@ -27,6 +27,13 @@ const Header = memo(() => {
           </Button>
         </Toolbar>
       </AppBar>
+      <picture>
+        <img
+          className='main-image'
+          src={require('../../assets/images/main.jpg')}
+          alt='Two people talking in a coffee shop'
+        />
+      </picture>
     </div>
   );
 });
