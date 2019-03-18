@@ -1,18 +1,12 @@
 {
-  "extends": ["config:base"],
   "assignees": ["dougbacelar"],
+  "automerge": true,
   "dependencies": {
-    "automerge": false,
-    "patch": {
-      "automerge": true
+    "major": {
+      "automerge": false
     }
   },
-  "devDependencies": {
-    "automerge": true
-  },
+  "extends": ["config:base"],
   "labels": ["dependency update", "renovate"],
-  "pin": {
-    "automerge": true
-  },
   "reviewers": ["dougbacelar"]
 }
