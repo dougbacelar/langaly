@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { MODAL_TYPES } from '../../constants/modals';
 import { closeModal } from '../../actions/modal';
 import LoginModal from './LoginModal';
-import { useStateStore } from '../../store';
+import { useStoreState } from '../../store';
 
 const { LOGIN } = MODAL_TYPES;
 
@@ -11,12 +11,11 @@ const MODAL_MAPPING = {
 };
 
 const ModalWrapper = memo(() => {
-  const [{ modal }, dispatch] = useStateStore();
+  const [{ modal }, dispatch] = useStoreState();
+  const onClose = useCallback(() => dispatch(closeModal()));
   const ModalToRender = MODAL_MAPPING[modal.type];
 
-  return ModalToRender ? (
-    <ModalToRender onClose={() => dispatch(closeModal())} />
-  ) : null;
+  return ModalToRender ? <ModalToRender onClose={onClose} /> : null;
 });
 
 export default ModalWrapper;

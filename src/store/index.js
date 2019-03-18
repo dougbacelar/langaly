@@ -9,4 +9,4 @@ export const StateProvider = ({ children }) => (
   </StateContext.Provider>
 );
 
-export const useStateStore = () => useContext(StateContext);
+export const useStoreState = () => useContext(StateContext);
