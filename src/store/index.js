@@ -10,3 +10,4 @@ export const StateProvider = ({ children }) => (
 );
 
 export const useStoreState = () => useContext(StateContext);
+export const useDispatch = () => useStoreState()[1];

@@ -6,14 +6,16 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-import { useStoreState } from '../../store';
+import { useDispatch } from '../../store';
 import { openModal } from '../../actions/modal';
 import { APP_NAME } from '../../constants';
 import { MODAL_TYPES } from '../../constants/modals';
 
 const Header = memo(() => {
-  const dispatch = useStoreState()[1];
-  const onClick = useCallback(() => dispatch(openModal(MODAL_TYPES.LOGIN)));
+  const dispatch = useDispatch();
+  const onClick = useCallback(() => dispatch(openModal(MODAL_TYPES.LOGIN)), [
+    dispatch,
+  ]);
 
   return (
     <div>

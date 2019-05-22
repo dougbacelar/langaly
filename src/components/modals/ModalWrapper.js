@@ -12,7 +12,7 @@ const MODAL_MAPPING = {
 
 const ModalWrapper = memo(() => {
   const [{ modal }, dispatch] = useStoreState();
-  const onClose = useCallback(() => dispatch(closeModal()));
+  const onClose = useCallback(() => dispatch(closeModal()), [dispatch]);
   const ModalToRender = MODAL_MAPPING[modal.type];
 
   return ModalToRender ? <ModalToRender onClose={onClose} /> : null;
