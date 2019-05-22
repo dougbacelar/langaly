@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "husky": "2.3.0",
-    "lint-staged": "8.1.5",
+    "lint-staged": "8.1.7",
     "prettier": "1.17.1"
   },
   "husky": {
