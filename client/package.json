@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
+  "description": "UI for langaly project",
+  "author": "dougbacelar",
   "dependencies": {
     "@material-ui/core": "4.0.0-alpha.4",
     "react": "16.8.6",
@@ -15,6 +17,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougbacelar/langaly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dougbacelar/langaly/issues"
+  },
+  "homepage": "https://github.com/dougbacelar/langaly#readme",
   "eslintConfig": {
     "extends": "react-app"
   },

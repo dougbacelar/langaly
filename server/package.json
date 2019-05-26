@@ -1,0 +1,24 @@
+{
+  "name": "langaly-server",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "backend for langaly UI",
+  "author": "dougbacelar",
+  "main": "src/index.js",
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougbacelar/langaly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dougbacelar/langaly/issues"
+  },
+  "homepage": "https://github.com/dougbacelar/langaly#readme"
+}
