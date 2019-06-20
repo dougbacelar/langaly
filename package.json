@@ -1,8 +1,6 @@
 {
-  "name": "langaly",
-  "version": "0.1.0",
-  "private": true,
-  "license": "UNLICENSED",
+  "author": "dougbacelar",
+  "description": "conversation exchange web app",
   "devDependencies": {
     "husky": "2.3.0",
     "lint-staged": "8.1.7",
@@ -13,11 +11,15 @@
       "pre-commit": "lint-staged"
     }
   },
+  "license": "UNLICENSED",
   "lint-staged": {
     "*.{js,json,css,md}": [
       "prettier --write",
       "eslint",
       "git add"
     ]
-  }
+  },
+  "name": "langaly",
+  "private": true,
+  "version": "0.1.0"
 }
