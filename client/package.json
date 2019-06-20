@@ -1,37 +1,29 @@
 {
-  "name": "langaly-client",
-  "version": "0.1.0",
-  "private": true,
-  "license": "UNLICENSED",
-  "description": "UI for langaly project",
   "author": "dougbacelar",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@material-ui/core": "4.0.0-alpha.4",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dougbacelar/langaly.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dougbacelar/langaly/issues"
-  },
-  "homepage": "https://github.com/dougbacelar/langaly#readme",
+  "description": "UI for langaly project",
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "license": "UNLICENSED",
+  "name": "langaly-client",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "version": "0.1.0"
 }
