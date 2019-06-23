@@ -22,7 +22,7 @@ const FacebookButton = memo(() => {
 
   return (
     <Button variant='text' className={classes.button}>
-      <img className={classes.image} src={facebookLogo} />
+      <img alt='facebook logo' className={classes.image} src={facebookLogo} />
       <span className={classes.text}>Login with Facebook</span>
     </Button>
   );
