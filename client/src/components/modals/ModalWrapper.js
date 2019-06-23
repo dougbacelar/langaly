@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { MODAL_TYPES } from '../../constants/modals';
 import { closeModal } from '../../actions/modal';
-import LoginModal from './LoginModal';
+import LoginModal from './LoginModal/LoginModal';
 import { useStoreState } from '../../store';
 
 const { LOGIN } = MODAL_TYPES;
