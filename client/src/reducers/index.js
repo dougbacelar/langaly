@@ -1,6 +1,6 @@
 import modal from './modal';
 
-export const mainReducer = (state = {}, action = {}) => ({
+const mainReducer = (state = {}, action = {}) => ({
   modal: modal(state.modal, action),
 });
 
