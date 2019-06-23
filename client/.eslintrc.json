@@ -1,6 +1,7 @@
 {
   "plugins": ["react"],
   "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"

@@ -1,6 +1,6 @@
 const initialState = { type: null };
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'MODAL_CLOSE':
       return initialState;
@@ -13,4 +13,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default { initialState, reducer };
+export default reducer;
