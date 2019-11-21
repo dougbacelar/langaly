@@ -2,7 +2,7 @@
   "author": "dougbacelar",
   "description": "conversation exchange web app",
   "devDependencies": {
-    "husky": "2.4.1",
+    "husky": "3.1.0",
     "lint-staged": "8.2.1",
     "prettier": "1.18.2"
   },
