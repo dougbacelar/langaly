@@ -3,7 +3,7 @@
   "description": "conversation exchange web app",
   "devDependencies": {
     "husky": "2.4.1",
-    "lint-staged": "8.2.1",
+    "lint-staged": "10.0.7",
     "prettier": "1.18.2"
   },
   "husky": {
