@@ -1,9 +1,15 @@
 const express = require('express');
 const passport = require('passport');
+const path = require('path');
 const app = express();
 const PORT = 4000;
+// const { IS_PRODUCTION } = require('./environment/utils');
 
-require('../environment/setup');
+require('./environment/setup');
+
+// if (IS_PRODUCTION) {
+app.use(express.static(path.resolve('../client/build')));
+// }
 
 app.use(passport.initialize());
 app.use(passport.session()); // Restore authentication state, if any, from the session.
