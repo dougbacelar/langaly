@@ -15,15 +15,15 @@ passport.use(
     {
       clientID: process.env['FACEBOOK_CLIENT_ID'],
       clientSecret: process.env['FACEBOOK_CLIENT_SECRET'],
-      callbackURL: '/auth/facebook/callback',
+      callbackURL: '/auth/facebook/redirect',
     },
-    function(accessToken, refreshToken, profile, cb) {
+    function(accessToken, refreshToken, profile, done) {
       // TODO query DB for user with profile ID
-      // If user exists, pass it to callback. Update any missing info on DB.
-      // Else, create user on DB and pass it to callback
+      // If user exists, pass it to done callback. Update any missing info on DB.
+      // Else, create user on DB and pass it to done callback
       console.log('profile', profile);
 
-      return cb(null, profile);
+      return done(null, profile);
     }
   )
 );
@@ -42,13 +42,17 @@ passport.deserializeUser(function(obj, cb) {
 router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get(
-  '/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    console.log('Successful authentication, redirect home.');
-    res.send('logged in!');
-    // res.redirect('/');
-  }
+  '/auth/facebook/redirect',
+  passport.authenticate('facebook', {
+    failureRedirect: '/login',
+    successRedirect: 'http://localhost:3000',
+  })
+  // ,
+  // function(req, res) {
+  //   console.log('Successful authentication, redirect home.');
+  //   res.send('logged in!');
+  //   // res.redirect('/');
+  // }
 );
 
 router.get('/login', (req, res) => {
