@@ -21,8 +21,7 @@ passport.use(
       // TODO query DB for user with profile ID
       // If user exists, pass it to done callback. Update any missing info on DB.
       // Else, create user on DB and pass it to done callback
-      console.log('profile', profile);
-
+      console.log('profile.id', profile.id);
       return done(null, profile);
     }
   )
@@ -41,19 +40,13 @@ passport.deserializeUser(function(obj, cb) {
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
 
-router.get(
-  '/auth/facebook/redirect',
-  passport.authenticate('facebook', {
-    failureRedirect: '/login',
-    successRedirect: 'http://localhost:3000',
-  })
-  // ,
-  // function(req, res) {
-  //   console.log('Successful authentication, redirect home.');
-  //   res.send('logged in!');
-  //   // res.redirect('/');
-  // }
-);
+router.get('/auth/facebook/redirect', (req, res, next) => {
+  passport.authenticate('facebook', (err, user, info) => {
+    console.log('user!', user);
+    res.cookie('authtest', user.id);
+    res.redirect('/hi');
+  })(req, res, next);
+});
 
 router.get('/login', (req, res) => {
   res.send('logging you in...');

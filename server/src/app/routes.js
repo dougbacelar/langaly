@@ -3,10 +3,10 @@ const router = express.Router();
 const path = require('path');
 const { IS_PRODUCTION } = require('../environment/utils');
 
-router.get('/', (req, res) => {
-  console.log('hello!!!!!!');
-  console.log('IS_PRODUCTION', IS_PRODUCTION);
-  console.log('req.isAuthenticated(', req.isAuthenticated());
+router.get('/hi', (req, res) => {
+  console.log('\nIS_PRODUCTION', IS_PRODUCTION);
+  console.log('req.cookies', req.cookies);
+  res.send(req.cookies);
 
   // res.send('greetings');
   // const fileToServe = IS_PRODUCTION
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   //   : '../client/public/index.html';
 
   // if (IS_PRODUCTION) {
-  res.sendFile(path.resolve('../client/build/index.html'));
+  // res.sendFile(path.resolve('../client/build/index.html'));
   // } else {
   // console.log(req.url);
 
