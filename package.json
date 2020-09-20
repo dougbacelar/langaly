@@ -20,5 +20,8 @@
   },
   "name": "langaly",
   "private": true,
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
 }
