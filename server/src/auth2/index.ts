@@ -1,5 +1,4 @@
-import { setupEnvironmentVariables } from './env/setup';
-setupEnvironmentVariables();
+import './env/setup';
 import express from 'express';
 import jwt from 'jsonwebtoken';
 

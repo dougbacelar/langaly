@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 const ACTIVE_ENV =
   process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development';
 
-export const setupEnvironmentVariables = () => {
+const setupEnvironmentVariables = () => {
   // eslint-disable-next-line no-console
   console.log(`Using environment config: '${ACTIVE_ENV}'`);
 
@@ -16,3 +16,5 @@ export const setupEnvironmentVariables = () => {
     throw new Error('Could not load access token secret');
   }
 };
+
+setupEnvironmentVariables();
