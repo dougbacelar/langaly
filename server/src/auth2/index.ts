@@ -9,7 +9,7 @@ app.use(express.json());
 app.post('/', (req, res) => {
   const user = req.body?.user;
   if (!user) {
-    throw new Error('No user found');
+    res.status(400).json({ error: 'invalid request' });
   }
   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET || '', {
     expiresIn: '90 days',
@@ -18,5 +18,5 @@ app.post('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+  console.log(`auth2 is running at port ${PORT}`);
 });
