@@ -70,5 +70,5 @@ app.get('/login', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`auth2 is running at port ${PORT}`);
+  console.log(`auth server is running at port ${PORT}`);
 });
