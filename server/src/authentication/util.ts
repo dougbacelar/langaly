@@ -51,7 +51,7 @@ export const createAuthenticationCallback = (res: Response) => (
   info: unknown
 ) => {
   if (!validateUser(user)) {
-    return res.redirect('http://localhost:8080/login');
+    return res.redirect('http://localhost:3000/login');
   }
   // TODO query DB for langalyUser with user.id and user.provider
   // If user exists, use its id and save it in access token
@@ -59,7 +59,7 @@ export const createAuthenticationCallback = (res: Response) => (
 
   const accessToken = getAccessToken({ userId: user.id });
   if (!accessToken) {
-    return res.redirect('http://localhost:8080/login');
+    return res.redirect('http://localhost:3000/login');
   }
   console.log(
     'authenticated and created token! running callback for user: ',
@@ -72,5 +72,5 @@ export const createAuthenticationCallback = (res: Response) => (
     sameSite: 'strict', // strict prevents cookie from being sent to other sites
     secure: false, // set this to true to send cookie via HTTPS only
   });
-  res.redirect('http://localhost:8080/loggedin');
+  res.redirect('http://localhost:3000/');
 };
