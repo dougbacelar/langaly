@@ -13,5 +13,11 @@
   "patch": {
     "enabled": false
   },
-  "reviewers": ["dougbacelar"]
+  "reviewers": ["dougbacelar"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
