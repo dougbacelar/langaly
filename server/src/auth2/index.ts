@@ -1,20 +1,21 @@
 import './env/setup';
 import express from 'express';
-import jwt from 'jsonwebtoken';
+import passport from 'passport';
+import { facebookRouter } from './facebook';
 
 const app = express();
 const PORT = 8000;
-app.use(express.json());
 
-app.post('/', (req, res) => {
-  const user = req.body?.user;
-  if (!user) {
-    res.status(400).json({ error: 'invalid request' });
-  }
-  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET || '', {
-    expiresIn: '90 days',
-  });
-  res.json({ accessToken });
+app.use(express.json());
+app.use(passport.initialize());
+app.use(facebookRouter);
+
+app.get('/loggedin', (req, res) => {
+  res.send('bro you in...');
+});
+
+app.get('/login', (req, res) => {
+  res.send('pls login...');
 });
 
 app.listen(PORT, () => {

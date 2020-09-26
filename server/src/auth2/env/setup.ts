@@ -3,18 +3,39 @@ import { config } from 'dotenv';
 const ACTIVE_ENV =
   process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development';
 
+const REQUIRED_ENV = [
+  'ACCESS_TOKEN_SECRET',
+  'FACEBOOK_CLIENT_ID',
+  'FACEBOOK_CLIENT_SECRET',
+] as const;
+const validateEnv = () => {
+  REQUIRED_ENV.forEach((name) => {
+    if (!process.env[name]) {
+      throw new Error(`Could not load ${name}`);
+    }
+  });
+};
+
 const setupEnvironmentVariables = () => {
-  // eslint-disable-next-line no-console
   console.log(`Using environment config: '${ACTIVE_ENV}'`);
 
   const result = config({ path: `./env/.env.${ACTIVE_ENV}` });
   if (result.error) {
     throw result.error;
   }
-
-  if (!process.env.ACCESS_TOKEN_SECRET) {
-    throw new Error('Could not load access token secret');
-  }
+  validateEnv();
 };
+
+export interface IProcessEnv {
+  ACCESS_TOKEN_SECRET: string;
+  FACEBOOK_CLIENT_ID: string;
+  FACEBOOK_CLIENT_SECRET: string;
+}
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv extends IProcessEnv {}
+  }
+}
 
 setupEnvironmentVariables();
