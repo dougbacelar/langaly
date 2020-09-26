@@ -1,30 +1,8 @@
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
+import { hasStringProperty, isNonNullObject } from './typeGuards';
 
 const JWT_COOKIE_AGE = 60000; // 1 minutes;
-
-const isNonNullObject = (potentialObject: unknown): potentialObject is object =>
-  typeof potentialObject === 'object' && potentialObject !== null;
-
-const hasOwnProperty = <X extends {}, Y extends PropertyKey>(
-  obj: X,
-  prop: Y
-): obj is X & Record<Y, unknown> => {
-  // typescript does not support type guarding object properties yet
-  // https://fettblog.eu/typescript-hasownproperty/
-  // https://github.com/microsoft/TypeScript/issues/21732
-  return obj.hasOwnProperty(prop);
-};
-
-function hasStringProperty<X extends {}, Y extends PropertyKey>(
-  obj: X,
-  prop: Y
-): obj is X & Record<Y, string> {
-  if (!hasOwnProperty(obj, prop)) {
-    return false;
-  }
-  return typeof obj[prop] === 'string';
-}
 
 type AuthenticatedUser = {
   id: string;
@@ -73,7 +51,7 @@ export const createAuthenticationCallback = (res: Response) => (
   info: unknown
 ) => {
   if (!validateUser(user)) {
-    return res.redirect('../../login');
+    return res.redirect('http://localhost:8080/login');
   }
   // TODO query DB for langalyUser with user.id and user.provider
   // If user exists, use its id and save it in access token
@@ -81,7 +59,7 @@ export const createAuthenticationCallback = (res: Response) => (
 
   const accessToken = getAccessToken({ userId: user.id });
   if (!accessToken) {
-    return res.redirect('../../login');
+    return res.redirect('http://localhost:8080/login');
   }
   console.log(
     'authenticated and created token! running callback for user: ',
@@ -94,5 +72,5 @@ export const createAuthenticationCallback = (res: Response) => (
     sameSite: 'strict', // strict prevents cookie from being sent to other sites
     secure: false, // set this to true to send cookie via HTTPS only
   });
-  res.redirect('/loggedin');
+  res.redirect('http://localhost:8080/loggedin');
 };

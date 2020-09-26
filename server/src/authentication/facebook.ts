@@ -31,7 +31,7 @@ facebookRouter.get(
 facebookRouter.get('/auth/facebook/callback', (req, res, next) => {
   passport.authenticate(
     'facebook',
-    { failureRedirect: '/login' },
+    { failureRedirect: 'http://localhost:8080/login' },
     createAuthenticationCallback(res)
   )(req, res, next);
 });
