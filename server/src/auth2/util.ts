@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import jwt from 'jsonwebtoken';
 
-const JWT_COOKIE_AGE = 120000; // 2 minutes;
+const JWT_COOKIE_AGE = 60000; // 1 minutes;
 
 const isNonNullObject = (potentialObject: unknown): potentialObject is object =>
   typeof potentialObject === 'object' && potentialObject !== null;
@@ -55,7 +55,7 @@ const validateUser = (user: unknown): user is AuthenticatedUser => {
   return true;
 };
 
-export const getAccessToken = (user: { id: string }): string => {
+export const getAccessToken = (user: { userId: string }): string => {
   try {
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: '90 days',
@@ -79,7 +79,7 @@ export const createAuthenticationCallback = (res: Response) => (
   // If user exists, use its id and save it in access token
   // Else, create user on DB and pass new user id to access token
 
-  const accessToken = getAccessToken({ id: user.id });
+  const accessToken = getAccessToken({ userId: user.id });
   if (!accessToken) {
     return res.redirect('../../login');
   }
@@ -88,9 +88,9 @@ export const createAuthenticationCallback = (res: Response) => (
     user
   );
 
-  res.cookie('authtest', accessToken, {
+  res.cookie('langalyticket', accessToken, {
     expires: new Date(Date.now() + JWT_COOKIE_AGE),
-    httpOnly: false,
+    httpOnly: true,
     sameSite: 'strict', // strict prevents cookie from being sent to other sites
     secure: false, // set this to true to send cookie via HTTPS only
   });
