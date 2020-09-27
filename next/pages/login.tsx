@@ -1,17 +1,21 @@
 import { NextPageContext } from 'next';
-import Head from 'next/head';
+import { Head } from '../components/Head';
+import { Header } from '../components/Header';
 import { getJwtPayload } from '../utils/validateUser';
 
 export default function Login() {
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <main>
+      <Head title="Login | Langaly" />
+      <Header />
+      <main
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
         <h1>You havent logged in yet!</h1>
-        <a href='http://localhost:8000/auth/facebook'>Login</a>
+        <a href="http://localhost:8000/auth/facebook">Login with Facebook</a>
       </main>
     </>
   );
