@@ -34,6 +34,7 @@ export const validateUser = (context: NextPageContext) => {
     context.res?.writeHead(302, { Location: '/login' });
     context.res?.end();
   }
+  return jwtPayload;
 };
 
 declare global {
