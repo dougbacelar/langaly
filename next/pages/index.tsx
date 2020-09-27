@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next';
 import Head from 'next/head';
-import { validateUser } from './utils/validateUser';
+import { validateUser } from '../utils/validateUser';
 
 export default function Home() {
   return (

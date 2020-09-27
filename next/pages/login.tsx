@@ -1,6 +1,6 @@
 import { NextPageContext } from 'next';
 import Head from 'next/head';
-import { getJwtPayload } from './utils/validateUser';
+import { getJwtPayload } from '../utils/validateUser';
 
 export default function Login() {
   return (
